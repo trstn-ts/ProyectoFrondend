@@ -29,14 +29,14 @@ export default function Inicio() {
           tecnicosStats,
           usuariosStats
         ] = await Promise.all([
-          axios.get("http://localhost:3001/web/usuarios"),
-          axios.get("http://localhost:3001/web/tecnicos"),
-          axios.get("http://localhost:3001/web/ticketsEnProceso"),
-          axios.get("http://localhost:3001/web/ticketsCerrado"),
-          axios.get("http://localhost:3001/web/ticketsCancelado"),
-          axios.get("http://localhost:3001/web/ticketsConEvaluacion"),
-          axios.get("http://localhost:3001/web/statsTecnicos"),
-          axios.get("http://localhost:3001/web/statsUsuarios")
+          axios.get("https://proyectobackend-production-f34d.up.railway.app/web/usuarios"),
+          axios.get("https://proyectobackend-production-f34d.up.railway.app/web/tecnicos"),
+          axios.get("https://proyectobackend-production-f34d.up.railway.app/web/ticketsEnProceso"),
+          axios.get("https://proyectobackend-production-f34d.up.railway.app/web/ticketsCerrado"),
+          axios.get("https://proyectobackend-production-f34d.up.railway.app/web/ticketsCancelado"),
+          axios.get("https://proyectobackend-production-f34d.up.railway.app/web/ticketsConEvaluacion"),
+          axios.get("https://proyectobackend-production-f34d.up.railway.app/web/statsTecnicos"),
+          axios.get("https://proyectobackend-production-f34d.up.railway.app/web/statsUsuarios")
         ]);
 
         const promedio = calcularPromedio(evaluaciones.data);

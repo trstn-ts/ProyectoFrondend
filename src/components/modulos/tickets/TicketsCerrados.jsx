@@ -35,13 +35,13 @@ function TicketsCerrados() {
         setCargando(false);
       }
     };
-    obtener("http://localhost:3001/web/ticketsCerrado", setTicketsCerrado);
+    obtener("https://proyectobackend-production-f34d.up.railway.app/web/ticketsCerrado", setTicketsCerrado);
   }, []);
 
   const cargarEvaluaciones = async (id_ticket) => {
     setTicketActual(id_ticket);
     try {
-      const res = await fetch(`http://localhost:3001/web/evaluaciones/${id_ticket}`);
+      const res = await fetch(`https://proyectobackend-production-f34d.up.railway.app/web/evaluaciones/${id_ticket}`);
       const data = await res.json();
       setEvaluaciones(data);
     } catch (err) {

@@ -10,7 +10,7 @@ function UsuariosInactivos() {
 
   const obtenerUsuarios = async () => {
     try {
-      const res = await fetch("http://localhost:3001/web/usuariosInactivos");
+      const res = await fetch("https://proyectobackend-production-f34d.up.railway.app/web/usuariosInactivos");
       if (!res.ok) throw new Error("Error al obtener usuarios");
       const datos = await res.json();
       setUsuarios(datos);
@@ -30,7 +30,7 @@ function UsuariosInactivos() {
 
     try {
       const res = await fetch(
-        `http://localhost:3001/web/usuariosActivar/${id_usuario}`,
+        `https://proyectobackend-production-f34d.up.railway.app/web/usuariosActivar/${id_usuario}`,
         { method: "PUT" }
       );
       const data = await res.json();

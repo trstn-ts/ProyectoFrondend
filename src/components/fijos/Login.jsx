@@ -20,7 +20,7 @@ function Login({ setAutenticado }) {
     setError("");
 
     try {
-      const respuesta = await fetch("http://localhost:3001/web/login", {
+      const respuesta = await fetch("https://proyectobackend-production-f34d.up.railway.app/web/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ usuario, password }),

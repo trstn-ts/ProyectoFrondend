@@ -38,8 +38,8 @@ function Tickets() {
       }
     };
 
-    obtener("http://localhost:3001/web/ticketsEnProceso", setTicketsProceso);
-    obtener("http://localhost:3001/web/ticketsCancelado", setTicketsCancelado);
+    obtener("https://proyectobackend-production-f34d.up.railway.app/web/ticketsEnProceso", setTicketsProceso);
+    obtener("https://proyectobackend-production-f34d.up.railway.app/web/ticketsCancelado", setTicketsCancelado);
   }, []);
   const abrirModal = (ticket) => {
     setTicketSeleccionado(ticket);

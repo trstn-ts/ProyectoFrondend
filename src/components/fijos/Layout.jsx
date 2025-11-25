@@ -27,7 +27,7 @@ function Layout({ setAutenticado }) {
   useEffect(() => {
     const obtenerNotificaciones = async () => {
       try {
-        const res = await fetch("http://localhost:3001/web/ticketsSinAsignar");
+        const res = await fetch("https://proyectobackend-production-f34d.up.railway.app/web/ticketsSinAsignar");
         const data = await res.json();
         setNotiCount(data.length);
       } catch (err) {

@@ -27,7 +27,7 @@ function Tickets() {
   useEffect(() => {
     const obtenerTickets = async () => {
       try {
-        const respuesta = await fetch("http://localhost:3001/web/ticketsSinAsignar");
+        const respuesta = await fetch("https://proyectobackend-production-f34d.up.railway.app/web/ticketsSinAsignar");
         if (!respuesta.ok) throw new Error("Error al obtener tickets");
         const datos = await respuesta.json();
         setTickets(datos);
@@ -43,7 +43,7 @@ function Tickets() {
   useEffect(() => {
     const obtenerTecnicos = async () => {
       try {
-        const res = await fetch("http://localhost:3001/web/tecnicos");
+        const res = await fetch("https://proyectobackend-production-f34d.up.railway.app/web/tecnicos");
         const datos = await res.json();
         setTecnicos(datos);
       } catch (err) {
@@ -72,7 +72,7 @@ function Tickets() {
     }
 
     try {
-      const respuesta = await fetch("http://localhost:3001/web/asignarTicket", {
+      const respuesta = await fetch("https://proyectobackend-production-f34d.up.railway.app/web/asignarTicket", {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

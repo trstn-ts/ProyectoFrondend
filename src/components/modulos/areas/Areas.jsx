@@ -24,7 +24,7 @@ function Areas() {
   useEffect(() => {
     const obtenerAreas = async () => {
       try {
-        const res = await fetch("http://localhost:3001/web/areas");
+        const res = await fetch("https://proyectobackend-production-f34d.up.railway.app/web/areas");
         if (!res.ok) throw new Error("Error al obtener áreas");
         const datos = await res.json();
         setAreas(datos);
@@ -45,7 +45,7 @@ function Areas() {
 
     try {
       const res = await fetch(
-        `http://localhost:3001/web/areasUsuarios?id_area=${area.id_area}`
+        `https://proyectobackend-production-f34d.up.railway.app/web/areasUsuarios?id_area=${area.id_area}`
       );
       if (!res.ok) throw new Error("Error al obtener usuarios");
       const datos = await res.json();
@@ -63,7 +63,7 @@ function Areas() {
 
     try {
       const res = await fetch(
-        `http://localhost:3001/web/areas/${id_area}`,
+        `https://proyectobackend-production-f34d.up.railway.app/web/areas/${id_area}`,
         { method: "DELETE" }
       );
       const data = await res.json();
@@ -93,7 +93,7 @@ function Areas() {
     setMensajeArea("");
 
     try {
-      const res = await fetch("http://localhost:3001/web/areaNuevo", {
+      const res = await fetch("https://proyectobackend-production-f34d.up.railway.app/web/areaNuevo", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(nuevoArea),
@@ -103,7 +103,7 @@ function Areas() {
 
       if (data.success) {
         alert("Área creada correctamente");
-        const resAreas = await fetch("http://localhost:3001/web/areas");
+        const resAreas = await fetch("https://proyectobackend-production-f34d.up.railway.app/web/areas");
         const nuevasAreas = await resAreas.json();
         setAreas(nuevasAreas);
         cerrarModalCrear();
