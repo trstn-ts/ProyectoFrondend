@@ -44,7 +44,7 @@ function Layout({ setAutenticado }) {
         <h1 className="logo-text">HelpDesk</h1>
 
         <div className="d-flex align-items-center gap-4">
-                    
+         {/* Icono de notificaciones
           <div
             className="noti-icon position-relative"
             style={{ cursor: "pointer" }}
@@ -58,7 +58,7 @@ function Layout({ setAutenticado }) {
               </span>
             )}
           </div>
-          
+        */}
           <div className="user-info text-end">
             <div className="fw-bold">{usuario?.nombre} {usuario?.apellido}</div>
             <div className="user-role">{roles[usuario?.id_rol]}</div>
