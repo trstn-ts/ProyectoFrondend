@@ -24,23 +24,27 @@ function Tickets() {
     }).format(new Date(fecha));
   };
 
-  useEffect(() => {
-    const obtener = async (url, setter) => {
-      try {
-        const response = await fetch(url);
-        if (!response.ok) throw new Error("Error al obtener tickets");
-        const data = await response.json();
-        setter(data);
-      } catch (err) {
-        setError(err.message);
-      } finally {
-        setCargando(false);
-      }
-    };
+useEffect(() => {
+  const obtener = async (url, setter) => {
+    try {
+      const response = await fetch(url);
+      if (!response.ok) throw new Error("Error al obtener tickets");
+      const data = await response.json();
 
-    obtener("https://webback-production-7ccc.up.railway.app/web/ticketsEnProceso", setTicketsProceso);
-    obtener("https://webback-production-7ccc.up.railway.app/web/ticketsCancelado", setTicketsCancelado);
-  }, []);
+      const ordenados = [...data].sort((a, b) => b.id_ticket - a.id_ticket);
+
+      setter(ordenados);
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setCargando(false);
+    }
+  };
+
+  obtener("https://webback-production-7ccc.up.railway.app/web/ticketsEnProceso", setTicketsProceso);
+  obtener("https://webback-production-7ccc.up.railway.app/web/ticketsCancelado", setTicketsCancelado);
+}, []);
+
   const abrirModal = (ticket) => {
     setTicketSeleccionado(ticket);
     setMostrandoModal(true);
@@ -58,7 +62,7 @@ function Tickets() {
     <div className="container mt-4 usuarios-container">
 
       <h2 className="text-dark mb-3">Tickets en Proceso</h2>
-      <div className="table-responsive shadow-sm rounded mb-4">
+      <div className="table-responsive usuarios-scroll shadow-sm rounded mb-4">
         <table className="table table-hover align-middle">
           <thead className="table-danger">
             <tr>
@@ -106,15 +110,14 @@ function Tickets() {
         </table>
       </div>
       <h2 className="text-dark mb-3">Tickets Cancelados</h2>
-      <div className="table-responsive shadow-sm rounded mb-4">
+      <div className="table-responsive usuarios-scroll shadow-sm rounded mb-4">
         <table className="table table-hover align-middle">
           <thead className="table-danger">
             <tr>
               <th>ID</th>
               <th>Título</th>
               <th>Usuario</th>
-              <th>Fecha creación</th>
-              <th>Fecha cancelación</th>
+              <th>Fecha creación</th>              
               <th>Acciones</th>
             </tr>
           </thead>
@@ -124,8 +127,7 @@ function Tickets() {
                 <td>{t.id_ticket}</td>
                 <td>{t.titulo}</td>
                 <td>{t.nombre_usuario}</td>
-                <td>{formatearFecha(t.fecha_creacion)}</td>
-                <td>{formatearFecha(t.fecha_cierre)}</td>
+                <td>{formatearFecha(t.fecha_creacion)}</td>                
                 <td>
                   <button
                     className="btn btn-outline-primary btn-sm"

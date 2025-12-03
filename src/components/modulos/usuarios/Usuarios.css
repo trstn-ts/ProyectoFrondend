@@ -80,3 +80,22 @@
   background-color: var(--color-primary);
   color: white;
 }
+
+
+.usuarios-scroll {
+  max-height: 380px;     
+  overflow-y: auto;      
+}
+
+.usuarios-scroll thead th {
+  position: sticky;
+  top: 0;
+  z-index: 2; 
+  background-color: var(--color-primary) !important; 
+  color: white;
+}
+
+.usuarios-scroll table {
+  border-collapse: separate;
+  border-spacing: 0;
+}

@@ -14,7 +14,7 @@ import UsuariosInactivos from "./components/modulos/usuarios/UsuariosInactivos";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
-
+// https://proyectobackend-production-f34d.up.railway.app/web/usuarios
 function App() {  
   const [autenticado, setAutenticado] = useState(() => {
     return localStorage.getItem("autenticado") === "true";

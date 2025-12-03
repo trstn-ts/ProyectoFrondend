@@ -22,21 +22,24 @@ function TicketsCerrados() {
     }).format(new Date(fecha));
   };
 
-  useEffect(() => {
-    const obtener = async (url, setter) => {
-      try {
-        const response = await fetch(url);
-        if (!response.ok) throw new Error("Error al obtener tickets");
-        const data = await response.json();
-        setter(data);
-      } catch (err) {
-        setError(err.message);
-      } finally {
-        setCargando(false);
-      }
-    };
-    obtener("https://webback-production-7ccc.up.railway.app/web/ticketsCerrado", setTicketsCerrado);
-  }, []);
+useEffect(() => {
+  const obtener = async (url, setter) => {
+    try {
+      const response = await fetch(url);
+      if (!response.ok) throw new Error("Error al obtener tickets");
+      const data = await response.json();
+      const ordenados = [...data].sort((a, b) => b.id_ticket - a.id_ticket);
+      setter(ordenados);
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setCargando(false);
+    }
+  };
+
+  obtener("https://webback-production-7ccc.up.railway.app/web/ticketsCerrado", setTicketsCerrado);
+}, []);
+
 
   const cargarEvaluaciones = async (id_ticket) => {
     setTicketActual(id_ticket);
@@ -55,8 +58,7 @@ function TicketsCerrados() {
   return (
     <div className="container mt-4 usuarios-container">
       <h2 className="text-dark mb-3">Tickets Cerrados</h2>
-
-      <div className="table-responsive shadow-sm rounded mb-4">
+      <div className="table-responsive usuarios-scroll shadow-sm rounded mb-4">
         <table className="table table-hover align-middle">
           <thead className="table-danger">
             <tr>

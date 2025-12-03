@@ -101,7 +101,7 @@ function Tickets() {
 
       <h2 className="text-dark mb-3">Tickets Sin Asignar</h2>
 
-      <div className="table-responsive shadow-sm rounded mb-4">
+      <div className="table-responsive usuarios-scroll shadow-sm rounded mb-4">
         <table className="table table-hover align-middle">
           <thead className="table-danger">
           <tr>
