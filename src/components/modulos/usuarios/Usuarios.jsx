@@ -34,7 +34,7 @@ function Usuarios() {
   useEffect(() => {
     const obtenerUsuarios = async () => {
       try {
-        const res = await fetch("https://webback-production-7ccc.up.railway.app//web/usuarios");
+        const res = await fetch("https://webback-production-7ccc.up.railway.app/web/usuarios");
         if (!res.ok) throw new Error("Error al obtener usuarios");
         const datos = await res.json();
         setUsuarios(datos);
@@ -50,7 +50,7 @@ function Usuarios() {
   useEffect(() => {
     const cargarRoles = async () => {
       try {
-        const res = await fetch("https://webback-production-7ccc.up.railway.app//web/roles");
+        const res = await fetch("https://webback-production-7ccc.up.railway.app/web/roles");
         const datos = await res.json();
         setRoles(datos);
       } catch (err) {
@@ -59,7 +59,7 @@ function Usuarios() {
     };
     const cargarAreas = async () => {
       try {
-        const res = await fetch("https://webback-production-7ccc.up.railway.app//web/areas");
+        const res = await fetch("https://webback-production-7ccc.up.railway.app/web/areas");
         const datos = await res.json();
         setAreas(datos);
       } catch (err) {
@@ -143,7 +143,7 @@ function Usuarios() {
     setMensaje("");
 
     try {
-      const res = await fetch("https://webback-production-7ccc.up.railway.app//web/usuariosNuevo", {
+      const res = await fetch("https://webback-production-7ccc.up.railway.app/web/usuariosNuevo", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(nuevoUsuario),
@@ -152,7 +152,7 @@ function Usuarios() {
 
       if (data.success) {
         alert("Usuario creado correctamente");
-        const resUsuarios = await fetch("https://webback-production-7ccc.up.railway.app//web/usuarios");
+        const resUsuarios = await fetch("https://webback-production-7ccc.up.railway.app/web/usuarios");
         const usuariosActualizados = await resUsuarios.json();
         setUsuarios(usuariosActualizados);
         cerrarModal();
@@ -208,7 +208,7 @@ function Usuarios() {
     }
 
     try {
-      const res = await fetch(`https://webback-production-7ccc.up.railway.app//web/usuariosActualizar/${id_usuario}`, {
+      const res = await fetch(`https://webback-production-7ccc.up.railway.app/web/usuariosActualizar/${id_usuario}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ nombre, apellido, correo, telefono, usuario, password, id_rol, id_area }),
@@ -221,7 +221,7 @@ function Usuarios() {
       }
 
       alert(data.message);
-      const resUsuarios = await fetch("https://webback-production-7ccc.up.railway.app//web/usuarios");
+      const resUsuarios = await fetch("https://webback-production-7ccc.up.railway.app/web/usuarios");
       const usuariosActualizados = await resUsuarios.json();
       setUsuarios(usuariosActualizados);
       cerrarModalEditar();
@@ -235,7 +235,7 @@ function Usuarios() {
     if (!window.confirm("¿Seguro que deseas eliminar este usuario?")) return;
 
     try {
-      const res = await fetch(`https://webback-production-7ccc.up.railway.app//web/usuarios/${id_usuario}`, {
+      const res = await fetch(`https://webback-production-7ccc.up.railway.app/web/usuarios/${id_usuario}`, {
         method: "DELETE",
       });
       const data = await res.json();

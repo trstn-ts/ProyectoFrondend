@@ -16,7 +16,7 @@ function Roles() {
   useEffect(() => {
     const obtenerRoles = async () => {
       try {
-        const respuesta = await fetch("https://webback-production-7ccc.up.railway.app//web/roles");
+        const respuesta = await fetch("https://webback-production-7ccc.up.railway.app/web/roles");
         if (!respuesta.ok) throw new Error("Error al obtener roles");
         const datos = await respuesta.json();
         setRoles(datos);
@@ -35,7 +35,7 @@ function Roles() {
     setCargandoUsuarios(true);
 
     try {
-      const res = await fetch(`https://webback-production-7ccc.up.railway.app//web/rolesUsuarios?id_rol=${rol.id_rol}`);
+      const res = await fetch(`https://webback-production-7ccc.up.railway.app/web/rolesUsuarios?id_rol=${rol.id_rol}`);
       if (!res.ok) throw new Error("Error al obtener usuarios");
       const datos = await res.json();
       setUsuarios(datos);

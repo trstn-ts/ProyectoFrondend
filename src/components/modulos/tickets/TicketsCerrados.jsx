@@ -35,13 +35,13 @@ function TicketsCerrados() {
         setCargando(false);
       }
     };
-    obtener("https://webback-production-7ccc.up.railway.app//web/ticketsCerrado", setTicketsCerrado);
+    obtener("https://webback-production-7ccc.up.railway.app/web/ticketsCerrado", setTicketsCerrado);
   }, []);
 
   const cargarEvaluaciones = async (id_ticket) => {
     setTicketActual(id_ticket);
     try {
-      const res = await fetch(`https://webback-production-7ccc.up.railway.app//web/evaluaciones/${id_ticket}`);
+      const res = await fetch(`https://webback-production-7ccc.up.railway.app/web/evaluaciones/${id_ticket}`);
       const data = await res.json();
       setEvaluaciones(data);
     } catch (err) {
