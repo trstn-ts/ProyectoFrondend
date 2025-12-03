@@ -29,14 +29,14 @@ export default function Inicio() {
           tecnicosStats,
           usuariosStats
         ] = await Promise.all([
-          axios.get("https://proyectobackend-production-f34d.up.railway.app/web/usuarios"),
-          axios.get("https://proyectobackend-production-f34d.up.railway.app/web/tecnicos"),
-          axios.get("https://proyectobackend-production-f34d.up.railway.app/web/ticketsEnProceso"),
-          axios.get("https://proyectobackend-production-f34d.up.railway.app/web/ticketsCerrado"),
-          axios.get("https://proyectobackend-production-f34d.up.railway.app/web/ticketsCancelado"),
-          axios.get("https://proyectobackend-production-f34d.up.railway.app/web/ticketsConEvaluacion"),
-          axios.get("https://proyectobackend-production-f34d.up.railway.app/web/statsTecnicos"),
-          axios.get("https://proyectobackend-production-f34d.up.railway.app/web/statsUsuarios")
+          axios.get("https://webback-production-7ccc.up.railway.app//web/usuarios"),
+          axios.get("https://webback-production-7ccc.up.railway.app//web/tecnicos"),
+          axios.get("https://webback-production-7ccc.up.railway.app//web/ticketsEnProceso"),
+          axios.get("https://webback-production-7ccc.up.railway.app//web/ticketsCerrado"),
+          axios.get("https://webback-production-7ccc.up.railway.app//web/ticketsCancelado"),
+          axios.get("https://webback-production-7ccc.up.railway.app//web/ticketsConEvaluacion"),
+          axios.get("https://webback-production-7ccc.up.railway.app//web/statsTecnicos"),
+          axios.get("https://webback-production-7ccc.up.railway.app//web/statsUsuarios")
         ]);
 
         const promedio = calcularPromedio(evaluaciones.data);

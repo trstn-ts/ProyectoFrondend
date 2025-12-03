@@ -20,7 +20,7 @@ function Login({ setAutenticado }) {
     setError("");
 
     try {
-      const respuesta = await fetch("https://proyectobackend-production-f34d.up.railway.app/web/login", {
+      const respuesta = await fetch("https://webback-production-7ccc.up.railway.app//web/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ usuario, password }),

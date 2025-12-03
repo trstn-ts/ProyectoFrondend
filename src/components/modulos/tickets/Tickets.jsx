@@ -38,8 +38,8 @@ function Tickets() {
       }
     };
 
-    obtener("https://proyectobackend-production-f34d.up.railway.app/web/ticketsEnProceso", setTicketsProceso);
-    obtener("https://proyectobackend-production-f34d.up.railway.app/web/ticketsCancelado", setTicketsCancelado);
+    obtener("https://webback-production-7ccc.up.railway.app//web/ticketsEnProceso", setTicketsProceso);
+    obtener("https://webback-production-7ccc.up.railway.app//web/ticketsCancelado", setTicketsCancelado);
   }, []);
   const abrirModal = (ticket) => {
     setTicketSeleccionado(ticket);
